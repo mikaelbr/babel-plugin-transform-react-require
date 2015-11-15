@@ -43,6 +43,9 @@ describe('transform-react-require', function () {
         });
         result = babel.transform(actual, myOpts);
       }
+
+      // console.log(actual, expected);
+      // console.log(result.code);
       assert.equal(result.code.trim(), expected.trim());
     });
   });

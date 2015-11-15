@@ -6,6 +6,8 @@ var _bar2 = _interopRequireDefault(_bar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var React = require('react');
+
 var Foo = require('foo');
 
 React.createElement(

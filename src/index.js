@@ -7,32 +7,36 @@ var buildRequire = template(`
 `);
 
 export default function ({ types: t }) {
-  let hasJsx = false;
-  let hasRequired = false;
-
   return {
     visitor: {
-      JSXElement() { hasJsx = true; },
+      JSXElement() {
+        this.hasJsx = true;
+      },
 
       ImportDeclaration ({ node }, { opts: { moduleName = 'react' } }) {
         if (!node.source || !node.source.value) return;
         if (node.source.value !== moduleName) return;
-        hasRequired = true;
+        this.hasRequired = true;
       },
 
       CallExpression ({ node }, { opts: { moduleName = 'react' } }) {
         if (node.callee.name !== 'require') return;
         if (!node.arguments || !node.arguments[0]) return;
         if (node.arguments[0].value !== moduleName) return;
-        hasRequired = true;
+        this.hasRequired = true;
       },
 
       Program: {
+        enter() {
+          this.hasJsx = false;
+          this.hasRequired = false;
+        },
+
         exit(path, { opts: {
           identifier = 'React',
           moduleName = 'react'
         }}) {
-          if (hasJsx && !hasRequired) {
+          if (this.hasJsx && !this.hasRequired) {
             let ref = t.identifier(identifier);
             path.unshiftContainer('body', [
               t.variableDeclaration('var', [
@@ -42,8 +46,6 @@ export default function ({ types: t }) {
             ]);
           }
 
-          hasJsx = false;
-          hasRequired = false;
         }
       }
     }
