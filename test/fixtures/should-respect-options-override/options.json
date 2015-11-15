@@ -1,0 +1,7 @@
+[
+  {
+    "identifier": "dom",
+    "moduleName": "my-custom-dom"
+  },
+  { "pragma": "dom" }
+]
