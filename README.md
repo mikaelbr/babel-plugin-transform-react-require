@@ -2,7 +2,7 @@
 
 Automatically require React (or other implementations) when using JSX.
 This babel plugin inserts CommonJS style require where it detects
-JSX and React isn't all ready reaquired (or imported using ES2015 syntax).
+JSX and React isn't already required (or imported using ES2015 syntax).
 
 ## Installation
 
