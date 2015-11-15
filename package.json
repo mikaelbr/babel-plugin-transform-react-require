@@ -6,8 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register test/ --timeout 10000",
-    "prepublish": "npm run babel",
-    "babel": "mkdir -p dist; babel src/index.js --out-file dist/index.js"
+    "prepublish": "npm run build",
+    "build": "mkdir -p dist; babel src/index.js --out-file dist/index.js"
   },
   "main": "dist/index.js",
   "keywords": [
