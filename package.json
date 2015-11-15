@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-transform-react-require",
   "version": "1.0.0",
-  "description": "Make files using JSX require React (or other implementations)",
+  "description": "Transform files using JSX to implicitly require React (or other implementations)",
   "repository": "https://github.com/mikaelbr/babel-plugin-transform-react-require",
   "license": "MIT",
   "scripts": {
