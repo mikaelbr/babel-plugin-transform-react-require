@@ -1,4 +1,4 @@
-# babel-plugin-transform-react-require
+# babel-plugin-transform-react-require [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
 Automatically require React (or other implementations) when using JSX.
 This babel plugin inserts CommonJS style require where it detects
@@ -70,3 +70,11 @@ require("babel-core").transform("code", {
   }]
 });
 ```
+
+
+[npm-url]: https://npmjs.org/package/babel-plugin-transform-react-require
+[npm-image]: http://img.shields.io/npm/v/babel-plugin-transform-react-require.svg?style=flat
+[npm-downloads]: http://img.shields.io/npm/dm/babel-plugin-transform-react-require.svg?style=flat
+
+[travis-url]: http://travis-ci.org/mikaelbr/babel-plugin-transform-react-require
+[travis-image]: http://img.shields.io/travis/mikaelbr/babel-plugin-transform-react-require.svg?style=flat
