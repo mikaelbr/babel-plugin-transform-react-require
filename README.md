@@ -7,7 +7,7 @@ JSX and React isn't already required (or imported using ES2015 syntax).
 ## Installation
 
 ```sh
-$ npm install babel-plugin-transform-react-require
+$ npm install --save babel-plugin-transform-react-require
 ```
 
 ## Usage
