@@ -4,6 +4,35 @@ Automatically require React (or other implementations) when using JSX.
 This babel plugin inserts CommonJS style require where it detects
 JSX and React isn't already required (or imported using ES2015 syntax).
 
+If you're using JSX in your React (or similar) components, you often
+don't need the `React` module to anything else, and it will seem as
+if you have an unused require-statement. When using something like
+[`eslint`](http://eslint.org/) you'd have to add a rule saying
+unused `React` should be ignored, but that's not always true.
+
+With this module you'll no longer need to use this anti-pattern:
+
+```jsx
+let React = require('react'); // free, seemingly unused
+
+module.exports = function MyComponent () {
+  return (
+   <h1>Hello World!</h1>
+  );
+};
+```
+
+You can instead let it be an implementation detail and write:
+
+```jsx
+module.exports = function MyComponent () {
+  return (
+   <h1>Hello World!</h1>
+  );
+};
+```
+
+
 ## Installation
 
 ```sh
@@ -52,8 +81,8 @@ $ babel --plugins transform-react-require script.js
 ### Via Node API
 
 ```javascript
-require("babel-core").transform("code", {
-  plugins: ["transform-react-require"]
+require('babel-core').transform('code', {
+  plugins: ['transform-react-require']
 });
 ```
 
@@ -63,10 +92,10 @@ Same as through the `.babelrc`, you can override defaults:
 
 
 ```js
-require("babel-core").transform("code", {
-  plugins: ["transform-react-require", {
-    "identifier": "dom",
-    "moduleName": "my-dom-library"
+require('babel-core').transform('code', {
+  plugins: ['transform-react-require', {
+    'identifier': 'dom',
+    'moduleName': 'my-dom-library'
   }]
 });
 ```
