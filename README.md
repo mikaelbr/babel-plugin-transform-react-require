@@ -13,7 +13,7 @@ unused `React` should be ignored, but that's not always true.
 With this module you'll no longer need to use this anti-pattern:
 
 ```jsx
-let React = require('react'); // free, seemingly unused
+const React = require('react'); // free, seemingly unused
 
 module.exports = function MyComponent () {
   return (
